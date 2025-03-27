@@ -20,3 +20,52 @@ The dataset contains crucial financial data for Nvidia's stock, including openin
 * Close: The stock price at the end of the trading day.
 * Volume: The total number of Nvidia shares traded during the day.
 
+**Preprocessing Steps:**
+  - Converted 'Date' column to datetime format and set it as the index.
+  - Checked for missing values and handled duplicates.
+  - Normalized stock prices using MinMaxScaler for deep learning models.
+
+## **Methodology & Approach**  
+
+###  **Exploratory Data Analysis (EDA)**  
+- **Stock Trend Analysis:** Line plots to observe stock movement over time.  
+- **Distribution Analysis:** Histograms to analyze price distribution.  
+- **Moving Averages (SMA 20, 50, 200):** Trend detection.  
+- **Volatility Analysis:** Daily returns and rolling volatility visualization.  
+- **Correlation Heatmap:** Identifying feature relationships.  
+- **Seasonality Analysis:** Using ACF/PACF plots for time-series trends.  
+
+###  **Feature Engineering & Selection**  
+- Extracted **trend and seasonality** using seasonal decomposition.  
+- Used **Random Forest feature importance** to select key features.  
+
+###  **Machine Learning Model (Random Forest Regression)**  
+- Trained **Random Forest Regressor** on historical data.  
+- Evaluated feature importance to understand key stock predictors.  
+
+###  **Deep Learning Model (LSTM - Long Short-Term Memory)**  
+- Used a **sequence of 60 past stock prices** to predict future prices.  
+- Built an **LSTM neural network** with dropout layers to prevent overfitting.  
+- Trained on NVIDIA’s stock data and tested on unseen data.  
+- Visualized **actual vs. predicted stock prices**.  
+
+###  **Model Evaluation & Predictions**  
+- Compared **actual vs. predicted** stock prices.  
+- Assessed model performance using visualization techniques.  
+
+## **Results & Insights**  
+
+- **Trend Capture:** The LSTM model successfully follows NVIDIA’s overall stock trend.  
+- **Performance During Volatility:** The model struggles with sharp price fluctuations, lagging slightly behind during high-volatility periods.  
+- **Smoothing Effect:** Predictions are smoother than actual prices, as LSTM tends to average sudden changes.  
+- **Recent Data Performance:** The model captures trends well but underestimates growth in 2023-2024.    
+
+## **Final Outcome**  
+* Developed an **LSTM-based predictive model** for NVIDIA’s stock prices.  
+* Provided insights into **market trends, volatility, and price movements**.  
+* The model can be **improved** by incorporating **sentiment analysis, technical indicators, and macroeconomic factors**.  
+
+## **Future Scope**  
+- **Integrating Financial News Sentiment Analysis** to improve stock movement predictions.  
+- **Using more advanced deep learning models** (Transformers, Attention Mechanisms).  
+- **Applying predictive analytics with ARIMA/LSTM hybrid models** for better forecasting accuracy.  
